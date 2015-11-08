@@ -30,7 +30,9 @@ def aceptar_solicitud(request):
 		if formulario_aceptar_solicitud.is_valid():
 			formulario_aceptar_solicitud.save()
 			return redirect(inicio)
+		else:
+			formulario_aceptar_solicitud = FormAceptarSolicitud()
 	else:
-		formulario_solicitar = FormAceptarSolicitud()
+		formulario_aceptar_solicitud = FormAceptarSolicitud()
 
-	return render(request, 'tegchos_solicitudes/aceptar_solicitud.html', {'formAceparSolicitud': formulario_solicitar})
+	return render(request, 'tegchos_solicitudes/aceptar_solicitud.html', {'formAceparSolicitud': formulario_aceptar_solicitud})

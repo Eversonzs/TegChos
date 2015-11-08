@@ -3,15 +3,25 @@
 {% load material_form %}
 
 <html>
-	<head>
+	<head class="card-panel teal section light-blue">
 		<title>TEGCHOS</title>
+		  <nav class ¨card-panel teal¨ >
+		    <div class="nav-wrapper teal light-blue">
+		      <a href="#" class="brand-logo">TegChos</a>
+		      <ul id="nav-mobile" class="right hide-on-med-and-down">
+		        <li><a href="{% url 'solicitar' %}">Solicitudes</a></li>
+		        <li><a href="{% url 'AceptarSolicitud' %}">Validar solicitud</a></li>
+		        <li><a href="{% url 'inicio' %}">Techos construidos</a></li>
+		      </ul>
+		    </div>
+		</nav>		
+		<h3 class="card-panel teal lighten-2">Realizar solicitud: </h3>
 	</head>
 	<body>
-		<h3 class="card-panel teal light-blue">Realizar solicitud: </h3>
 
 		<form method="POST" class="solicitar">{% csrf_token %}
 			<div class="container">
-				<div class="col s12"> 
+				<div class="input-field col s12"> 
 			    	<label>Nombre del solicitante: </label>
 					{{ formSolicitar.NombreSolicitante }}                                                 
 					{{ formSolicitar.NombreSolicitante.errors }}		           
@@ -23,37 +33,61 @@
 					{{ formSolicitar.Colonia.errors }}		           
 				</div>
 
-				<div class="col s6">
+				<div class="input-field col s6">
 					<label>Ubicación: </label>
 					{{ formSolicitar.Ubicacion }}                                                 
 					{{ formSolicitar.Ubicacion.errors }}					
 				</div>
 
-				<div class="col s12">
+				<div class="input-field col s12">
 					<label>Observaciones: </label>
 					{{ formSolicitar.Observaciones }}                                                 
 					{{ formSolicitar.Observaciones.errors }}					
 				</div>
 
-				<div class="col s6">
+				<div class="input-field col s6">
 					<label>Teléfono: </label>
 					{{ formSolicitar.Telefono }}                                                 
 					{{ formSolicitar.Telefono.errors }}					
 				</div>
 
-				<div class="col s6">
+				<div class="input-field col s6">
 					<label>Correo electrónico: </label>
 					{{ formSolicitar.Correo }}                                                 
 					{{ formSolicitar.Correo.errors }}					
 				</div>		
 
 				<div class="center-align">
-					<button type="submit" class="save btn btn-default waves-effect ">Guardar</button>
+					<button type="submit" class="save btn btn-default waves-effect blue">Enviar</button>
 				</div>
 
 			</div>
-
         </form>
 	</body>
+
+	<footer class=" teal light-blue">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="black-text">Techos dignos</h5>
+                <p class="black-text text-lighten-4">Tu derecho a tenerlo y tu deber es cuidarlo</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="black-text">Equipo: </h5>
+                <ul>
+                  <li><a class="black-text text-lighten-3" href="#!">José</a></li>
+                  <li><a class="black-text text-lighten-3" href="#!">Isaias</a></li>
+                  <li><a class="black-text text-lighten-3" href="#!">Everson</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2015 Copyright - Tictanes
+            <a class="black-text text-lighten-4 right" href="#!">Más información</a>
+            </div>
+          </div>
+   	</footer>
 </html>
     

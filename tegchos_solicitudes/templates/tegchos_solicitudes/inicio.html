@@ -4,12 +4,83 @@
 {% load material_form %}
 
 <html>
-	<head>
+	<head class="card-panel teal section light-blue">
 		<title>TEGCHOS</title>
+		  <nav class ¨card-panel teal¨ >
+		    <div class="nav-wrapper teal light-blue">
+		      <a href="#" class="brand-logo">TegChos</a>
+		      <ul id="nav-mobile" class="right hide-on-med-and-down">
+		        <li><a href="{% url 'solicitar' %}">Solicitudes</a></li>
+		        <li><a href="{% url 'AceptarSolicitud' %}">Validar solicitud</a></li>
+		        <li><a href="{% url 'inicio' %}">Techos construidos</a></li>
+		      </ul>
+		    </div>
+		</nav>		
+		<h3 class="card-panel teal light-blue">Techos construidos</h3>
 	</head>
 
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script> 
+<script>
+   google.load("visualization", "1", {packages:["corechart"]});
+   google.setOnLoadCallback(dibujarGrafico);
+   function dibujarGrafico() {
+     // Tabla de datos: valores y etiquetas de la gráfica
+     var data = google.visualization.arrayToDataTable([
+       ['Texto', 'Valor numérico'],
+       ['Texto1', 20.21],
+       ['Texto2', 4.28],
+       ['Texto3', 17.26],
+       ['Texto4', 10.25]    
+     ]);
+     var options = {
+       title: 'Nuestro primer ejemplo con Google Charts'
+     }
+     // Dibujar el gráfico
+     new google.visualization.ColumnChart( 
+     //ColumnChart sería el tipo de gráfico a dibujar
+       document.getElementById('GraficoGoogleChart-ejemplo-1')
+     ).draw(data, options);
+   }
+ </script> 
+<body>
+Comenzando con Google Charts....
+<div id="GraficoGoogleChart-ejemplo-1" style="width: 800px; height: 600px">
+</div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
 	<body>
-		<h3 class="card-panel teal light-blue">Techos construidos</h3>
 		<div class="row">	
 		{% for tc in ListaTechosConstruidos %}
 			<div class="col s3">
@@ -23,6 +94,7 @@
 			    </div>
 			    <div class="card-reveal">
 			      <span class="card-title grey-text text-darken-4">{{ tc.Solicitud.Colonia.Nombre }}<i class="material-icons right">cerrar</i></span>
+			      	<p><strong>Colonia:</strong> {{ tc.Colonia.Nombre }}</p>
 					<p><strong>Beneficiarios:</strong> {{ tc.Beneficiarios }}</p>
 					<p><strong>Metros S2:</strong> {{ tc.MetroS2 }}</p>
 					<p><strong>Donación de palo:</strong> {{ tc.DonacionPalo }}</p>
@@ -33,4 +105,30 @@
 		{% endfor %}
 		</div>
 	</body>
+
+        <footer class=" teal light-blue">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="black-text">Techos dignos</h5>
+                <p class="black-text text-lighten-4">Tu derecho a tenerlo y tu deber es cuidarlo</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="black-text">Equipo: </h5>
+                <ul>
+                  <li><a class="black-text text-lighten-3" href="#!">José</a></li>
+                  <li><a class="black-text text-lighten-3" href="#!">Isaias</a></li>
+                  <li><a class="black-text text-lighten-3" href="#!">Everson</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2015 Copyright - Tictanes
+            <a class="black-text text-lighten-4 right" href="#!">Más información</a>
+            </div>
+          </div>
+        </footer>
+
 </html>
