@@ -8,6 +8,10 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:listSelector="@android:color/transparent"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@null"
+        android:dividerHeight="10dp"
         android:id="@+id/listview_feedPrincipal">
     </ListView>
     <Button
@@ -20,6 +24,7 @@
         android:layout_marginRight="10dp"
         android:text="+"
         android:background="@drawable/button_nueva_solicitud"
-        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
         android:elevation="10dp"/>
 </RelativeLayout>
