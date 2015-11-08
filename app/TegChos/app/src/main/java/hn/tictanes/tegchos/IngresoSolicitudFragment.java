@@ -15,9 +15,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
@@ -54,6 +58,24 @@ public class IngresoSolicitudFragment extends Fragment {
         Button btnEnviar = (Button) (rootView.findViewById(R.id.btnEnviarSolicitud));
         ImageButton imgButton = (ImageButton) (rootView.findViewById(R.id.imgButton));
 
+        EditText etNombre = (EditText) (rootView.findViewById(R.id.etNombre));
+        EditText etDireccion = (EditText) (rootView.findViewById(R.id.etDireccion));
+        EditText etTelefono = (EditText) (rootView.findViewById(R.id.etTelefono));
+        EditText etCorreo = (EditText) (rootView.findViewById(R.id.etCorreo));
+        EditText etObservacion = (EditText) (rootView.findViewById(R.id.etObservacion));
+        try {
+            JSONObject joEnvio = new JSONObject();
+            joEnvio.put("nombre", etNombre.getText());
+            joEnvio.put("direccion",etDireccion.getText());
+            joEnvio.put("telefono",etTelefono.getText());
+            joEnvio.put("correo",etCorreo.getText());
+            joEnvio.put("observacion",etObservacion.getText());
+
+            
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
 
         imgButton.setOnClickListener(new View.OnClickListener() {
