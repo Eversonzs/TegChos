@@ -4,10 +4,10 @@
 {% load material_form %}
 
 <html>
-	<head class="card-panel teal section light-blue">
+	<head class="card-panel teal darken-3 section light-blue" >
 		<title>TEGCHOS</title>
-		  <nav class ¨card-panel teal¨ >
-		    <div class="nav-wrapper teal light-blue">
+		  <nav class= ¨card-panel teal¨ >
+		    <div class="nav-wrapper teal darken-3 light-blue">
 		      <a href="#" class="brand-logo">TegChos</a>
 		      <ul id="nav-mobile" class="right hide-on-med-and-down">
 		        <li><a href="{% url 'solicitar' %}">Solicitudes</a></li>
@@ -15,9 +15,9 @@
 		        <li><a href="{% url 'inicio' %}">Techos construidos</a></li>
 		      </ul>
 		    </div>
-		</nav>		
-		<h3 class="card-panel teal light-blue">Techos construidos</h3>
-	</head>
+		</nav>	
+    <h3 class="card-panel teal light-blue center-align">Techos construidos</h3>
+  </head>
 
 	<body>
 		<div class="row">	
@@ -25,10 +25,9 @@
       
       <div class="col s3">
 			  <div class="card">
-			    <div class="card-image waves-effect waves-block waves-light">
+			    <div class="card-image waves-effect waves-block waves-light" style="width:300px; height: 250px">
             
-
-            <img class="responsive-img" src="{{}}">
+            <img class="responsive-img" src="{{tc.imagen}}">
 
           </div>
 			    <div class="card-content">

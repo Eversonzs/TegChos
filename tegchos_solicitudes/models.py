@@ -26,6 +26,7 @@ class TechosConstruidos(models.Model):
 	MetroS2 = models.DecimalField(max_digits=10, decimal_places=2)
 	DonacionPalo = models.CharField(max_length=70, help_text='Donacion de Palo', null=True, blank = True)
 	DonacionLamina = models.CharField(max_length=70, help_text='Donacion de Lamina', null=True, blank = True)
+	imagen = models.CharField(max_length=70, help_text='Imagen', null=True, blank = True)
 
 	def __str__(self):
 		return self.Solicitud.NombreSolicitante
