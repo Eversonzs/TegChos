@@ -1,6 +1,5 @@
 import csv
 import sqlite3
-from tegchos_solicitudes.models import Colonia
 
 con = sqlite3.connect('C:\Users\Isaias Zelaya\Desktop\HackTegus\TegChos\\tegchos\db.sqlite3')
 
@@ -28,21 +27,20 @@ for i in colonias:
 	if i not in lista_nueva:
 		lista_nueva.append(i)
 
+
 File.close()
 
-#cursor = con.cursor()
+cursor = con.cursor()
 print "Exito al abrir la base de datos"
 
-for ln in lista_nueva:
-	print ln
+#for ln in lista_nueva:
+#	print ln
 
+cursor.execute("INSERT INTO tegchos_solicitudes_colonia(Nombre) VALUES ('Dato de prueba')")
 
+con.commit()
+print "se agrego correctamente"
 
-#cursor.execute("INSERT INTO Colonia(Nombre) VALUES ('Dato de prueba')")
-
-#con.commit()
-#print "se agrego correctamente"
-
-#con.close()
+con.close()
 
 

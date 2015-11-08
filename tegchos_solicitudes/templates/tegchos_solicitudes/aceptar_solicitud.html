@@ -3,10 +3,10 @@
 {% load material_form %}
 
 <html>
-	<head class="card-panel teal section light-blue">
+	<head class="card-panel teal darken-3 section light-blue" >
 		<title>TEGCHOS</title>
-		  <nav class ¨card-panel teal¨ >
-		    <div class="nav-wrapper teal light-blue">
+		  <nav class= ¨card-panel teal¨ >
+		    <div class="nav-wrapper teal darken-3 light-blue">
 		      <a href="#" class="brand-logo">TegChos</a>
 		      <ul id="nav-mobile" class="right hide-on-med-and-down">
 		        <li><a href="{% url 'solicitar' %}">Solicitudes</a></li>
@@ -14,9 +14,9 @@
 		        <li><a href="{% url 'inicio' %}">Techos construidos</a></li>
 		      </ul>
 		    </div>
-		</nav>		
-		<h3 class="card-panel teal light-blue">Completar solicitud: </h3>
-	</head>
+		</nav>	
+   	 <h3 class="card-panel teal light-blue center-align">Completar Solicitud</h3>
+  	</head>
 
 	<body>
 		<form method="POST" class="AceptarSolicitud">{% csrf_token %}
