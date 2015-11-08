@@ -61,7 +61,7 @@ public class IngresoSolicitudFragment extends Fragment {
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "Hola", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Enviando...", Toast.LENGTH_SHORT).show();
             }
         });
         return rootView;
