@@ -3,9 +3,14 @@
 
     <string name="app_name">TegChos</string>
     <string name="hello_world">Hello world!</string>
-    <string name="etNombre">Nombre...</string>
-    <string name="etTelefono">Telefono...</string>
-    <string name="etCorreo">Correo...</string>
+    <string name="etNombre">Nombre</string>
+    <string name="etTelefono">Telefono</string>
+    <string name="etCorreo">Correo</string>
+    <string name="etDireccion">Direccion</string>
+    <string name="etObservacion">Observacion</string>
+    <string name="lblSeleccione">Seleccione una opcion...</string>
+    <string name="btnTomarFoto">Tomar fotografia</string>
+    <string name="btnSeleccionarGalaria">Seleccionar de galeria</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_ingreso_solicitud">IngresoSolicitud</string>
 
