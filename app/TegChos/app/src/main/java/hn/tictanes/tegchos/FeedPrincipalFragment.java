@@ -20,6 +20,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * A placeholder fragment containing a simple view.
  */
@@ -84,6 +87,7 @@ public class FeedPrincipalFragment extends Fragment {
             };
             matrixcursor = new MatrixCursor(columnas);
             int counter = 0;
+            int id = 1;
             String strNo = "";
             String strNombre = "";
             String strColonia = "";
@@ -104,7 +108,8 @@ public class FeedPrincipalFragment extends Fragment {
                         Log.d("C: ",">" + c.toString() + "counter: " + counter );
                         switch (counter) {
                             case 0:
-                                strNo = c.getString("fStr");
+//                                strNo = c.getString("fStr");
+                                strNo = Integer.toString(id);
                                 counter++;
                                 break;
                             case 1:
@@ -116,7 +121,14 @@ public class FeedPrincipalFragment extends Fragment {
                                 counter++;
                                 break;
                             case 3:
-                                strFechaConstruccion = c.getString("fNum");
+                                if (c.has("fNum")) {
+                                    Long lgFechaConstruccion = c.getLong("fNum");
+                                    strFechaConstruccion = new SimpleDateFormat("dd/MM/yyyy").format(new Date(lgFechaConstruccion));
+
+                                } else {
+                                    strFechaConstruccion = c.getString("fStr");
+                                }
+
                                 counter++;
                                 break;
                             case 4:
@@ -128,15 +140,22 @@ public class FeedPrincipalFragment extends Fragment {
                                 counter++;
                                 break;
                             case 6:
-                                strBeneficiarios= c.getString("fNum");
+                                if (c.has("fNum")) {
+                                    strBeneficiarios= c.getString("fNum");
+                                } else {
+                                    strBeneficiarios= c.getString("fStr");
+                                }
                                 counter++;
                                 break;
                             case 7:
                                 strDonLaminas= c.getString("fStr");
+                                String arr[] = strDonLaminas.split(" ",2);
+                                strDonLaminas = arr[0];
                                 counter++;
                                 break;
                             case 8:
                                 counter = 0;
+                                id++;
                                 matrixcursor.addRow(new Object[]{
                                         strNo, strNombre, strColonia, strFechaConstruccion, strDireccion, strMetros, strBeneficiarios, strDonLaminas
                                 });

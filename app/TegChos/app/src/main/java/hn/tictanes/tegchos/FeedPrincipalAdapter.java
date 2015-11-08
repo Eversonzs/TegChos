@@ -29,7 +29,7 @@ public class FeedPrincipalAdapter extends android.support.v4.widget.CursorAdapte
                 "Metros", "Beneficiarios", "LaminasDonadas"
         };
 
-        int iNo = cursor.getInt(0);
+        String strNo = cursor.getString(0);
         String strNombre = cursor.getString(1);
         String strColonia = cursor.getString(2);
         String strFechaConstruccion = cursor.getString(3);
@@ -37,11 +37,22 @@ public class FeedPrincipalAdapter extends android.support.v4.widget.CursorAdapte
         String strMetros = cursor.getString(5);
         String strBeneficiarios = cursor.getString(6);
         String strLaminadasDonadas = cursor.getString(7);
-        TextView tvTodoTexto = (TextView) (view.findViewById(R.id.tvtodotexto));
-        String strTodoPegado = iNo + " " + strNombre  + " " + strColonia  + " " + strFechaConstruccion
-                + " " + strDireccion
-                + " " + strMetros   + " " + strBeneficiarios   + " " + strLaminadasDonadas;
-                tvTodoTexto.setText(strTodoPegado);
+        TextView tvId = (TextView) (view.findViewById(R.id.tvId));
+        TextView tvNombre = (TextView) (view.findViewById(R.id.tvNombre));
+        TextView tvColonia = (TextView) (view.findViewById(R.id.tvColonia));
+        TextView tvFechaConstruccion = (TextView) (view.findViewById(R.id.tvFechaConstruccion));
+        TextView tvDireccion = (TextView) (view.findViewById(R.id.tvDireccion));
+        TextView tvMetros = (TextView) (view.findViewById(R.id.tvMetros));
+        TextView tvBeneficiarios = (TextView) (view.findViewById(R.id.tvBeneficiarios));
+        TextView tvDonacionLaminas = (TextView) (view.findViewById(R.id.tvDonacionLaminas));
 
+        tvId.setText(strNo);
+        tvNombre.setText(strNombre);
+        tvColonia.setText(strColonia);
+        tvFechaConstruccion.setText(strFechaConstruccion);
+        tvDireccion.setText(strDireccion);
+        tvMetros.setText(strMetros);
+        tvBeneficiarios.setText(strBeneficiarios);
+        tvDonacionLaminas.setText(strLaminadasDonadas);
     }
 }
