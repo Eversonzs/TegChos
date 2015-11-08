@@ -43,19 +43,6 @@ public class FeedPrincipalFragment extends Fragment {
                 "_id", "Nombre","Colonia","FechaConstruccion", "Direccion",
                 "Metros", "Beneficiarios", "LaminasDonadas"
         };
-        matrixcursor = new MatrixCursor(columnas);
-        getActivity().startManagingCursor(matrixcursor);
-        matrixcursor.addRow(new Object[]{
-                "1", "LEYSI GABRIELA SIERRA CANIZALEZ", "LOMA LAS MINITAS", "09/01/15", "CONTIGUO A LA PUL. DON RODOLFO", "23.5", "5", "14 LAMINAS DE ZINC"
-        });
-        matrixcursor.addRow(new Object[]{
-                "2","REINA ISABEL PAVON PAVON","LA SEMPE","19/01/15","TERCERA CALLE","30","8","22 LAMINAS DE ZINC"
-        });
-        getActivity().stopManagingCursor(matrixcursor);
-
-        mFeedPrincipalAdapter = new FeedPrincipalAdapter(getActivity(),matrixcursor,0);
-
-        listView.setAdapter(mFeedPrincipalAdapter);
         Button btnAgregarSolicitud = (Button) (rootView.findViewById(R.id.btnAgregarSolicitud));
         btnAgregarSolicitud.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,12 +87,9 @@ public class FeedPrincipalFragment extends Fragment {
                 try {
                     JSONObject todo = new JSONObject(jsonStr);
                     JSONObject result = todo.getJSONObject("result");
-                    Log.d("result: ",">" + result.toString());
                     JSONArray jaTechos = result.getJSONArray("fArray");
-                    Log.d("jaTechos: ",">" + jaTechos.toString());
                     for (int i = 9; i < jaTechos.length(); i++) {
                         JSONObject c = jaTechos.getJSONObject(i);
-                        Log.d("C: ",">" + c.toString() + "counter: " + counter );
                         switch (counter) {
                             case 0:
 //                                strNo = c.getString("fStr");
@@ -113,11 +97,11 @@ public class FeedPrincipalFragment extends Fragment {
                                 counter++;
                                 break;
                             case 1:
-                                strNombre = c.getString("fStr");
+                                strNombre = UppercaseFirstLetters(c.getString("fStr").toLowerCase());
                                 counter++;
                                 break;
                             case 2:
-                                strColonia = c.getString("fStr");
+                                strColonia = UppercaseFirstLetters(c.getString("fStr").toLowerCase());
                                 counter++;
                                 break;
                             case 3:
@@ -132,7 +116,7 @@ public class FeedPrincipalFragment extends Fragment {
                                 counter++;
                                 break;
                             case 4:
-                                strDireccion = c.getString("fStr");
+                                strDireccion = UppercaseFirstLetters(c.getString("fStr").toLowerCase());;
                                 counter++;
                                 break;
                             case 5:
@@ -141,7 +125,8 @@ public class FeedPrincipalFragment extends Fragment {
                                 break;
                             case 6:
                                 if (c.has("fNum")) {
-                                    strBeneficiarios= c.getString("fNum");
+                                    int intBeneficiarios= c.getInt("fNum");
+                                    strBeneficiarios = Integer.toString(intBeneficiarios);
                                 } else {
                                     strBeneficiarios= c.getString("fStr");
                                 }
@@ -182,6 +167,22 @@ public class FeedPrincipalFragment extends Fragment {
             listView.setAdapter(mFeedPrincipalAdapter);
 
         }
+    }
+    public static String UppercaseFirstLetters(String str)
+    {
+        boolean prevWasWhiteSp = true;
+        char[] chars = str.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            if (Character.isLetter(chars[i])) {
+                if (prevWasWhiteSp) {
+                    chars[i] = Character.toUpperCase(chars[i]);
+                }
+                prevWasWhiteSp = false;
+            } else {
+                prevWasWhiteSp = Character.isWhitespace(chars[i]);
+            }
+        }
+        return new String(chars);
     }
 }
 

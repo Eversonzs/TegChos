@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -45,6 +46,18 @@ public class FeedPrincipalAdapter extends android.support.v4.widget.CursorAdapte
         TextView tvMetros = (TextView) (view.findViewById(R.id.tvMetros));
         TextView tvBeneficiarios = (TextView) (view.findViewById(R.id.tvBeneficiarios));
         TextView tvDonacionLaminas = (TextView) (view.findViewById(R.id.tvDonacionLaminas));
+        ImageView ivTecho = (ImageView) (view.findViewById(R.id.ivTecho));
+        int iNo = Integer.parseInt(strNo);
+        if (iNo%4 == 0) {
+            ivTecho.setBackground(context.getResources().getDrawable(R.drawable.imagentecho4));
+        } else if (iNo%3 == 0) {
+            ivTecho.setBackground(context.getResources().getDrawable(R.drawable.imagentecho3));
+        } else if (iNo%2 == 0) {
+            ivTecho.setBackground(context.getResources().getDrawable(R.drawable.imagentecho2));
+        } else {
+            ivTecho.setBackground(context.getResources().getDrawable(R.drawable.imagentecho));
+        }
+
 
         tvId.setText(strNo);
         tvNombre.setText(strNombre);
