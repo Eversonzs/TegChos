@@ -1,0 +1,53 @@
+{% include 'material/includes/material_css.html' %}
+{% include 'material/includes/material_js.html' %}
+{% load material_form %}
+
+<html>
+	<head>
+		<title>TEGCHOS</title>
+	</head>
+	<body>
+		<h3 class="card-panel teal light-blue">Completar solicitud: </h3>
+
+		<form method="POST" class="AceptarSolicitud">{% csrf_token %}
+			<div class="container">
+				<div class="col s12"> 
+			    	<label>Solicitud: </label>
+					{{ formAceparSolicitud.Solicitud }}
+					{{ formAceparSolicitud.Solicitud.errors }}
+				</div>
+
+				<div class="col s4">
+					<label>Número de beneficiarios: </label>
+					{{ formAceparSolicitud.Beneficiarios }}                                                 
+					{{ formAceparSolicitud.Beneficiarios.errors }}		           
+				</div>
+
+				<div class="col s4">
+					<label>Metros cuadrados: </label>
+					{{ formAceparSolicitud.MetroS2 }}                                                 
+					{{ formAceparSolicitud.MetroS2.errors }}					
+				</div>
+
+				<div class="col s6">
+					<label>Donación de palo: </label>
+					{{ formAceparSolicitud.DonacionPalo }}                                                 
+					{{ formAceparSolicitud.DonacionPalo.errors }}					
+				</div>
+
+				<div class="col s6">
+					<label>Donación de lámina: </label>
+					{{ formAceparSolicitud.DonacionLamina }}                                                 
+					{{ formAceparSolicitud.DonacionLamina.errors }}					
+				</div>
+
+			</div>
+
+				<div class="center-align">
+					<button type="submit" class="save btn btn-default waves-effect ">Guardar</button>
+				</div>
+
+        </form>
+	</body>
+</html>
+    

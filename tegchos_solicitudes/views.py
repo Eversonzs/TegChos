@@ -3,6 +3,7 @@ from .models import Colonia
 from .models import Solicitud
 from .models import TechosConstruidos
 from .forms import FormSolicitud
+from .forms import FormAceptarSolicitud
 from django.shortcuts import redirect
 
 # Create your views here.
@@ -16,8 +17,20 @@ def solicitar(request):
 		formulario_solicitar = FormSolicitud(request.POST)
 		if formulario_solicitar.is_valid():
 			formulario_solicitar.save()
-			return redirect(tegchos_solicitudes.views.inicio)
+			return redirect(inicio)
 	else:
 		formulario_solicitar = FormSolicitud()
 
 	return render(request, 'tegchos_solicitudes/solicitar.html', {'formSolicitar': formulario_solicitar})
+
+def aceptar_solicitud(request):
+
+	if request.method == 'POST':
+		formulario_aceptar_solicitud = FormAceptarSolicitud(request.POST)
+		if formulario_aceptar_solicitud.is_valid():
+			formulario_aceptar_solicitud.save()
+			return redirect(inicio)
+	else:
+		formulario_solicitar = FormAceptarSolicitud()
+
+	return render(request, 'tegchos_solicitudes/aceptar_solicitud.html', {'formAceparSolicitud': formulario_solicitar})

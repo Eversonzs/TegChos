@@ -1,13 +1,59 @@
+{% include 'material/includes/material_css.html' %}
+{% include 'material/includes/material_js.html' %}
+{% load material_form %}
+
 <html>
 	<head>
 		<title>TEGCHOS</title>
 	</head>
 	<body>
-		<h1>Realizar una solicitud: </h1>
+		<h3 class="card-panel teal light-blue">Realizar solicitud: </h3>
 
 		<form method="POST" class="solicitar">{% csrf_token %}
-            {{ formSolicitar.as_p }}
-            <button type="submit" class="save btn btn-default">Guardar</button>
+			<div class="container">
+				<div class="col s12"> 
+			    	<label>Nombre del solicitante: </label>
+					{{ formSolicitar.NombreSolicitante }}                                                 
+					{{ formSolicitar.NombreSolicitante.errors }}		           
+				</div>
+
+				<div class="col s6">
+					<label>Colonia: </label>
+					{{ formSolicitar.Colonia }}                                                 
+					{{ formSolicitar.Colonia.errors }}		           
+				</div>
+
+				<div class="col s6">
+					<label>Ubicación: </label>
+					{{ formSolicitar.Ubicacion }}                                                 
+					{{ formSolicitar.Ubicacion.errors }}					
+				</div>
+
+				<div class="col s12">
+					<label>Observaciones: </label>
+					{{ formSolicitar.Observaciones }}                                                 
+					{{ formSolicitar.Observaciones.errors }}					
+				</div>
+
+				<div class="col s6">
+					<label>Teléfono: </label>
+					{{ formSolicitar.Telefono }}                                                 
+					{{ formSolicitar.Telefono.errors }}					
+				</div>
+
+				<div class="col s6">
+					<label>Correo electrónico: </label>
+					{{ formSolicitar.Correo }}                                                 
+					{{ formSolicitar.Correo.errors }}					
+				</div>		
+
+				<div class="center-align">
+					<button type="submit" class="save btn btn-default waves-effect ">Guardar</button>
+				</div>
+
+			</div>
+
         </form>
 	</body>
 </html>
+    

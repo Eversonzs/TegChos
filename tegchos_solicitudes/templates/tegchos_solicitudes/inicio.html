@@ -1,20 +1,36 @@
-	<html>
-		<head>
-			<title>TEGCHOS</title>
-		</head>
-		<body>
-			<h1><p>Techos Construidos</p></h1>
+{% load staticfiles %}
+{% include 'material/includes/material_css.html' %}
+{% include 'material/includes/material_js.html' %}
+{% load material_form %}
 
-			{% for tc in ListaTechosConstruidos %}
-			<div>
-				<h1><a href="">{{ tc.Solicitud.Colonia.Nombre }}</a></h1>
-				<p><strong>Fecha de construcción:</strong> {{ tc.FechaConstruccion }}</p>
-				<p><strong>Beneficiarios:</strong> {{ tc.Beneficiarios }}</p>
-				<p><strong>Metros S2:</strong> {{ tc.MetroS2 }}</p>
-				<p><strong>Donación de palo:</strong> {{ tc.DonacionPalo }}</p>
-				<p><strong>Donación de lámina:</strong> {{ tc.DonacionLamina }}</p>											
+<html>
+	<head>
+		<title>TEGCHOS</title>
+	</head>
+
+	<body>
+		<h3 class="card-panel teal light-blue">Techos construidos</h3>
+		<div class="row">	
+		{% for tc in ListaTechosConstruidos %}
+			<div class="col s3">
+			  <div class="card">
+			    <div class="card-image waves-effect waves-block waves-light">
+			      <img class="responsive-img" src="http://m.oem.com.mx/136d0d15-b0b5-43f4-8fa8-48e5a81e5baf.jpg">
+			    </div>
+			    <div class="card-content">
+			      <span class="card-title activator grey-text text-darken-4"><h6><a href="">{{ tc.Solicitud.NombreSolicitante }}</a></h6><i class="material-icons right">ver mas</i></span>
+			      <p><strong>Fecha de construcción:</strong> {{ tc.FechaConstruccion }}</p>
+			    </div>
+			    <div class="card-reveal">
+			      <span class="card-title grey-text text-darken-4">{{ tc.Solicitud.Colonia.Nombre }}<i class="material-icons right">cerrar</i></span>
+					<p><strong>Beneficiarios:</strong> {{ tc.Beneficiarios }}</p>
+					<p><strong>Metros S2:</strong> {{ tc.MetroS2 }}</p>
+					<p><strong>Donación de palo:</strong> {{ tc.DonacionPalo }}</p>
+					<p><strong>Donación de lámina:</strong> {{ tc.DonacionLamina }}</p>
+			    </div>
+			  </div>
 			</div>
-			{% endfor %}
-
-		</body>
-	</html>
+		{% endfor %}
+		</div>
+	</body>
+</html>

@@ -17,7 +17,7 @@ class Solicitud(models.Model):
 	Fecha = models.DateField(auto_now = True, auto_now_add = False)
 	
 	def __str__(self):
-		return self.NombreSolicitante + ' ' + self.Colonia.Nombre
+		return self.NombreSolicitante + ' - ' + self.Colonia.Nombre
 
 class TechosConstruidos(models.Model):
 	Solicitud = models.ForeignKey(Solicitud)
