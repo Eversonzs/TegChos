@@ -1,0 +1,20 @@
+	<html>
+		<head>
+			<title>TEGCHOS</title>
+		</head>
+		<body>
+			<h1><p>Techos Construidos</p></h1>
+
+			{% for tc in ListaTechosConstruidos %}
+			<div>
+				<h1><a href="">{{ tc.Solicitud.Colonia.Nombre }}</a></h1>
+				<p><strong>Fecha de construcción:</strong> {{ tc.FechaConstruccion }}</p>
+				<p><strong>Beneficiarios:</strong> {{ tc.Beneficiarios }}</p>
+				<p><strong>Metros S2:</strong> {{ tc.MetroS2 }}</p>
+				<p><strong>Donación de palo:</strong> {{ tc.DonacionPalo }}</p>
+				<p><strong>Donación de lámina:</strong> {{ tc.DonacionLamina }}</p>											
+			</div>
+			{% endfor %}
+
+		</body>
+	</html>

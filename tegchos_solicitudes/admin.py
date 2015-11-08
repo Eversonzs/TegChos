@@ -7,5 +7,4 @@ admin.site.register(Colonia)
 admin.site.register(Solicitud)
 admin.site.register(TechosConstruidos)
 
-
 # Register your models here.
