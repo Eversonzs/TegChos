@@ -19,75 +19,18 @@
 		<h3 class="card-panel teal light-blue">Techos construidos</h3>
 	</head>
 
-
-<script type="text/javascript" src="https://www.google.com/jsapi"></script> 
-<script>
-   google.load("visualization", "1", {packages:["corechart"]});
-   google.setOnLoadCallback(dibujarGrafico);
-   function dibujarGrafico() {
-     // Tabla de datos: valores y etiquetas de la gráfica
-     var data = google.visualization.arrayToDataTable([
-       ['Texto', 'Valor numérico'],
-       ['Texto1', 20.21],
-       ['Texto2', 4.28],
-       ['Texto3', 17.26],
-       ['Texto4', 10.25]    
-     ]);
-     var options = {
-       title: 'Nuestro primer ejemplo con Google Charts'
-     }
-     // Dibujar el gráfico
-     new google.visualization.ColumnChart( 
-     //ColumnChart sería el tipo de gráfico a dibujar
-       document.getElementById('GraficoGoogleChart-ejemplo-1')
-     ).draw(data, options);
-   }
- </script> 
-<body>
-Comenzando con Google Charts....
-<div id="GraficoGoogleChart-ejemplo-1" style="width: 800px; height: 600px">
-</div>
-</body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-
-
-
 	<body>
 		<div class="row">	
-		{% for tc in ListaTechosConstruidos %}
-			<div class="col s3">
+      {% for tc in ListaTechosConstruidos %}
+      
+      <div class="col s3">
 			  <div class="card">
 			    <div class="card-image waves-effect waves-block waves-light">
-			      <img class="responsive-img" src="http://m.oem.com.mx/136d0d15-b0b5-43f4-8fa8-48e5a81e5baf.jpg">
-			    </div>
+            
+
+            <img class="responsive-img" src="{{}}">
+
+          </div>
 			    <div class="card-content">
 			      <span class="card-title activator grey-text text-darken-4"><h6><a href="">{{ tc.Solicitud.NombreSolicitante }}</a></h6><i class="material-icons right">ver mas</i></span>
 			      <p><strong>Fecha de construcción:</strong> {{ tc.FechaConstruccion }}</p>
